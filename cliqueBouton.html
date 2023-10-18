@@ -1,0 +1,109 @@
+<!--
+        auteur : Ansoumane Condé
+        date : 2023
+       
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Click Bouton</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+        #main {
+            background-color: silver;
+            height: 900px;
+        }
+
+        #btnClick {
+            margin: 50px;
+        }
+
+        p {
+            margin: 50px 0;
+            font-size: 1.5em;
+        }
+
+        h1 {
+            margin-top: 1cm;
+        }
+    </style>
+    <script>
+        
+        const clickTotal = 20;
+        let nombreClick = 0;
+        let tempsDebut;
+        let tempsFin;
+
+        function CliqueMoi(){
+            // i. La 1e fois initialiser la variable tempsDebut avec la date du jour
+            
+            if (nombreClick == 0) {
+                tempsDebut = new Date();
+            }
+            // ii. Augmenter de 1 la variable nombreClick
+            nombreClick++;
+            
+            // iii. Afficher la variable nombreClick dans le <span> avec id infoClick
+            document.querySelector("#infoClick").innerHTML = nombreClick;
+
+            // iv. Si on a cliqué 20 fois, on doit initialiser la variable tempsFin avec la date du jour
+
+            if (nombreClick == clickTotal) {
+                let tempsFin = new Date();
+
+                // désactiver le bouton "Clique moi",
+                document.querySelector("#btnClick").disabled = true;
+
+                let nbreMillisecondes = tempsFin - tempsDebut;
+
+                // Afficher le message avec le temps ecouler
+                document.querySelector("#message").innerHTML = `Tu as cliqué 20 fois en ${nbreMillisecondes} millisecondes`;
+
+            }
+        }
+
+        function Rejouer(){
+            // Remettre le nombre de cliques à 0
+            nombreClick = 0;
+            document.querySelector("#infoClick").innerHTML = nombreClick;
+
+            // Activer le bouton "Clique moi"
+            document.querySelector("#btnClick").disabled = false;
+
+            // Vider la balise <h3>
+            document.querySelector("#message").innerHTML = "";
+    }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div id="main" class="col-10">
+
+                <form name="frmClique">
+                    <div class="text-center">
+                        <h1>Le clique rapide!!</h1>
+                        <p>Tu dois cliquer 20 fois le plus rapidement possible
+                        </p>
+                        <input type="button" class="btn btn-primary btn-lg" value="Clique Moi!" id="btnClick"
+                            name="btnClick" onclick="CliqueMoi()" />
+                        <br />
+                        <input type="button" value="Rejouer" class="btn btn-success btn-lg" id="btnRejouer"
+                            name="btnRejouer" onclick="Rejouer()" />
+                        <p># de cliques : <span id="infoClick">0</span></p>
+                        <h3 id="message"></h3>
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+
+</html>
