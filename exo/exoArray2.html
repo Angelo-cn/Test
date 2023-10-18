@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array de fruits </title>
+</head>
+<body>
+    <script>
+        let fruits = ['Mangue', 'Raisin', 'Figue', 'Kiwi'];
+        let trouve;
+        // affichage de la liste de fruits disponibles 
+        // for (let i = 0; i < fruits.length; i++){
+        //     document.write(`<h3> ${fruits[i]} </h3>`);
+        // }
+        let fruit = prompt("Quel fruit desirer vous achetez ?");
+        for (let i = 0; i < fruits.length; i++){
+            if (fruits[i] == fruit){
+                fruits.splice(i, 1);
+                 trouve = true;
+            }
+            else {
+                trouve = false;
+            }
+
+        }
+        
+        if (trouve){
+            alert("ok");
+        }
+        else{
+            document.write(`<h3> indisponible </h3>`);
+        }
+        
+        for (let i = 0; i < fruits.length; i++){
+            document.write(`<h3> ${fruits[i]} </h3>`);
+        }
+
+
+
+    </script>
+</body>
+</html>

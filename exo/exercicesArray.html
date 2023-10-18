@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let semaine = ['lun', 'mra', 'mer', 'jeu', 'ven', 'sam', 'ddi'];
+
+        // retirer la derniere valeur du tableau jours 
+        semaine.pop()
+        // affichage des valeurs du tableau en utilisant la methode document.write 
+        // for (let i = 0; i < semaine.length; i++){
+        //     document.write(`<h2> ${semaine[i]} </h2>`);
+        // }
+        // ajouter la valeur dim a la fin du tableau 
+        semaine.push("dim");
+        // remplacer la valeur mra par la valeur mar 
+        semaine.splice(1, 1, "mar");
+        for (let i = 0; i < semaine.length; i++){
+            document.write(`<h2> ${semaine[i]} </h2>`);
+        }
+        // affiche la troisieme valeur du tableau 
+        semaine[3];
+
+    </script>
+</body>
+</html>

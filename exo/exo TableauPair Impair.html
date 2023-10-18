@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+          <th id="Pair">Nombre Pairs</th>
+          <th id ="Impair">Nombre Impairs</th>
+        </tr>
+        <tr>
+          <td id="first">Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+        </tr>
+      </table>
+
+    <script>
+        let tabNumb = [];
+        let wrongItteration;
+
+        for (let i = 1; i <= 7; i++){
+             tabNumb[i] = Number(prompt("Saisir le " + i + " nombre "));
+            while(!(9 < tabNumb[i] && tabNumb[i] < 99)){
+                tabNumb[i] =  Number(prompt("Saisir le " + i + " nombre "));
+                wrongItteration++;
+            }
+        }
+        
+        
+        for (let i = 1; i <= 7; i++){
+            if (tabNumb[i] % 2 == 0){
+                 let cell = document.querySelectorAll("td");
+                 cell++;
+                 let row = document.createElement("tr");
+                 let cellSpe = document.querySelector("#first");
+                 cellSpe.innerHTML= tabNumb[i];
+  
+            }
+            document.write(`<h3> ${tabNumb[i]} </h3>`);
+        }
+
+ 
+    </script>
+
+
+</body>
+</html>

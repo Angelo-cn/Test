@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deviner un nombre</title>
+</head>
+<body>
+    <h2>Devinette</h2>
+    <h1>Trouver le bon nombre</h1>
+    <p>Vous devez trouver un nombre entre 1 et 100. Vous n'avez que <span></span> essais.</p>
+     <h4>Entrez votre nombre. Non, le nbre est plus <span id="message"> </span></h4>
+     <label>Votre choix :<input type="text"></label> <br> <br>
+     <input type="button" value="Ressayer" id="btnClick" name="btnClickName" onclick= "TryNumber();" />
+    <script>
+        let nbreAleatoire = Math.floor(Math.random() * 100 + 1);
+        
+        console.log(nbreAleatoire);
+        let essaie = 10;
+        const NBRE_TOTAL_ESSAIS = 10;
+        function TryNumber(){
+            let nbre = document.querySelector("input[type=text]").value;
+            essaie--;
+            if (nbre > nbreAleatoire){
+                 document.querySelector("#message").innerHTML = "grand";
+            }
+            else{
+                document.querySelector('#message').innerHTML = "petit";
+            }
+            document.querySelector("span").innerHTML = essaie;
+
+            if (nbre == nbreAleatoire){
+                alert("Vous avez gagnez !!! . Felicitations , Vous avez eu " + (NBRE_TOTAL_ESSAIS - essaie) + " tours au total pour gagner");
+            }
+
+            document.querySelector("input[type=text]").focus();
+
+            if (essaie == 0){
+                alert("Desole votre nombre d'essai est fini , le nombre corret etait :" + nbreAleatoire);
+            }
+        }
+
+
+        // let x = document.createElement("input");
+        // x.setAttribute("type", "text");
+        // document.body.appendChild(x);
+    </script>
+   
+</body>
+</html>
